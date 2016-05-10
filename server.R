@@ -160,17 +160,19 @@ RegR <- function (X){
     
     #Diagnostic parameters
     RSqrt  <- SMry[8]   #R-Squared
+    RSqrt  <- round(as.double(RSqrt),4)
     AdjRSqrt <- SMry[9] #adj R-Squared
+    AdjRSqrt <- round(as.double(AdjRSqrt),4)
     AIC  <- AIC(mdLM)#AIC
+    AIC <- round(as.double(AIC),4)
     #Assembling diagnostic parameters per model predictor in Matrix of all combinations
-    dFrame <- data.frame(modelReg = mdRegComb, RSquared = RSqrt, AdjustedRSquared = AdjRSqrt, AIC = AIC)
+    dFrame <- data.frame(modelReg = mdRegComb, RSquared = RSqrt, AIC = AIC, AdjRSquared = AdjRSqrt)
     
     #Loading data framme
     dynamicRegression <- rbind(dynamicRegression, dFrame)
   }
-}  
- return(dynamicRegression)
-  
+} 
+    return(dynamicRegression)
 } 
 
 # Define server logic required to draw a histogram
