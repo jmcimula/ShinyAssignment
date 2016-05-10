@@ -150,7 +150,8 @@ RegR <- function (X){
   
   #Setting an empty data frame
   dynamicRegression <- data.frame()
-  for (i in 1:nrow(ExpVarMatrix)){
+  nbSize <- nrow(ExpVarMatrix) #Length
+  for (i in 1:nbSize){
     
     getVal <- na.omit (ExpVarMatrix[i, ])
     mdRegComb <- paste (response, " ~ ", paste (getVal, collapse = " + "), sep = "")
@@ -171,6 +172,7 @@ RegR <- function (X){
     #Loading data framme
     dynamicRegression <- rbind(dynamicRegression, dFrame)
   }
+  
 } 
     return(dynamicRegression)
 } 
