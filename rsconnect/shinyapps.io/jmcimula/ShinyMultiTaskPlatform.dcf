@@ -1,0 +1,9 @@
+name: ShinyMultiTaskPlatform
+account: jmcimula
+server: shinyapps.io
+appId: 101049
+bundleId: 447525
+url: https://jmcimula.shinyapps.io/ShinyMultiTaskPlatform/
+when: 1462950570.24239
+asMultiple: FALSE
+asStatic: FALSE

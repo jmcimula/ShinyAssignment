@@ -21,7 +21,7 @@ shinyUI(pageWithSidebar(
            submitButton("SubmitRadio")
     
   ),
-  mainPanel(
+  mainPanel(  
     h3("DATA VISUALIZATION"),
     h4("Descriptive statistics"),
     verbatimTextOutput("ck"),
