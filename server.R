@@ -5,7 +5,8 @@ library(corrplot)
 library(PerformanceAnalytics)
 library(Rmisc)#multitplot
 library(stringr)
-
+library(DT)
+    
 #Loading the date
 data("economics")
          
@@ -113,8 +114,8 @@ RegR <- function (X){
 
   response <- tolower(X)
 
-  if (response == "") { dynamicRegression <- "Please choose a variable"}
-  else{
+  #if (response == "") { dynamicRegressions <- "Please choose a variable"}
+  #else{
   #Number of colums of the data frame
   getLen <- dim(ecoData)[2]
 
@@ -174,15 +175,18 @@ RegR <- function (X){
 
   }
   dynamicRegression <- as.data.frame(dynamicRegression)
+  dynamicRegression <- datatable(dynamicRegression)
+  return(dynamicRegression)
 }
-    return(dynamicRegression)
-}
+  
+#}
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
 
   output$ck <- renderPrint({multiXGroup(input$checkGroup)})#Using the function multiXGroup
-  output$rd <- renderPrint({RegR(input$radio)}) #Using the function RegR
+  #output$rd <- renderPrint({RegR(input$radio)}) #Using the function RegR
+  output$rd <- renderDataTable({RegR(input$radio)}) #Using the function RegR
   output$tx <- renderPlot({EXplData(input$text)}) #Using the function EXplData
 
 })

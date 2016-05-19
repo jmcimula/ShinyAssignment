@@ -1,5 +1,6 @@
 
 library(shiny)
+library(DT)
 # Define UI for application that draws a histogram
 shinyUI(pageWithSidebar(
   
@@ -17,7 +18,7 @@ shinyUI(pageWithSidebar(
            textInput("text", label = h3("EDA. [Type Cor or Plot]")),
            submitButton("SubmitText"),
            radioButtons("radio", label = h3("Dynamic Regression Models"),
-                                 choices = list("NA"="","PCE" = "PCE", "POP" = "POP","PSAVERT" = "PSAVERT","UEMPMED" = "UEMPMED","UNEMPLOY"="UNEMPLOY" )),
+                                 choices = list("PCE" = "PCE", "POP" = "POP","PSAVERT" = "PSAVERT","UEMPMED" = "UEMPMED","UNEMPLOY"="UNEMPLOY" )),
            submitButton("SubmitRadio")
     
   ),
@@ -28,7 +29,8 @@ shinyUI(pageWithSidebar(
     h4("Exploratory Analysis"),
     plotOutput("tx"),
     h4("[Use RadioButton :] Creation of all combinations of selected variables that will go into models as predictors"),
-    verbatimTextOutput("rd")
+    #verbatimTextOutput("rd")
+    dataTableOutput("rd")
     
     )
  
