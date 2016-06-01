@@ -181,9 +181,8 @@ RegR <- function (X){
   
 #}
 
-# Define server logic required to draw a histogram
+#Define server logic required to draw a histogram
 shinyServer(function(input, output) {
-
   output$ck <- renderPrint({multiXGroup(input$checkGroup)})#Using the function multiXGroup
   #output$rd <- renderPrint({RegR(input$radio)}) #Using the function RegR
   output$rd <- renderDataTable({RegR(input$radio)}) #Using the function RegR
